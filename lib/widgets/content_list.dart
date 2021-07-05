@@ -5,7 +5,9 @@ class ContentList extends StatelessWidget {
   final String? title;
   final List<Content>? contentList;
   final bool? isOriginals;
-  ContentList({this.title, this.contentList, this.isOriginals = false});
+  ContentList(
+      {Key? key, this.title, this.contentList, this.isOriginals = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

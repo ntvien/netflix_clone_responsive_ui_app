@@ -5,7 +5,7 @@ import 'package:netflix_responsive_ui_app/models/content_model.dart';
 class Previews extends StatelessWidget {
   final String? title;
   final List<Content>? contentList;
-  Previews({this.title, this.contentList});
+  Previews({Key? key, this.title, this.contentList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

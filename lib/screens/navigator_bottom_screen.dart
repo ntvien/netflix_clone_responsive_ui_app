@@ -8,12 +8,7 @@ class NavigatorBottomScreen extends StatefulWidget {
 
 class _NavigatorBottomScreenState extends State<NavigatorBottomScreen> {
   final List<Widget> _screens = [
-    HomeScreen(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold()
+    HomeScreen(key: PageStorageKey("homeScreen")),
   ];
 
   final Map<String, IconData> _icons = const {
