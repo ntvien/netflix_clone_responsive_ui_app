@@ -6,9 +6,9 @@
 
 ## Demo:
 
-    [Netflix](https://youtu.be/EnhcULH10SA)
+[Netflix](https://youtu.be/EnhcULH10SA)
 
-![Demo Netflix](demo/netflix.gif)
+![Demo Netflix](demo/netflix.mp4)
 
 ![Web Screenshot](screenshots/web.png)
 
