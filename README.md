@@ -4,9 +4,11 @@
 
     $ flutter run -d chrome
 
-## Demo:
+## Link Demo:
 
-[Netflix](https://youtu.be/EnhcULH10SA)
+- [Netflix](https://youtu.be/EnhcULH10SA)
+
+## Demo:
 
 ![Demo Netflix](demo/netflix.mp4)
 
