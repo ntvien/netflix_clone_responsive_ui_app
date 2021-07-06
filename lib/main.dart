@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:netflix_responsive_ui_app/screens/screens.dart';
 

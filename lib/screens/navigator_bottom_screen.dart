@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_responsive_ui_app/cubits/app_bar/app_bar_cubit.dart';
 import 'package:netflix_responsive_ui_app/screens/home_screen.dart';
 
 class NavigatorBottomScreen extends StatefulWidget {
@@ -24,7 +27,10 @@ class _NavigatorBottomScreenState extends State<NavigatorBottomScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
+      body: BlocProvider<AppBarCubit>(
+        create: (_)=>AppBarCubit(),
+        child: _screens[_currentIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
