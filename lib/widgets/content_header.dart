@@ -95,7 +95,9 @@ class __ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
   void initState() {
     _videoPlayerController =
         VideoPlayerController.network(widget.featureContent!.videoUrl)
-          ..initialize().then((_) => setState(() {}));
+          ..initialize().then((_) => setState(() {}))
+          ..setVolume(0)
+          ..play();
     super.initState();
   }
 
@@ -114,22 +116,33 @@ class __ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
-          Container(
-            height: 500,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(widget.featureContent!.imageUrl as String),
-                fit: BoxFit.cover,
-              ),
-            ),
+          AspectRatio(
+            aspectRatio: _videoPlayerController!.value.initialized
+                ? _videoPlayerController!.value.aspectRatio
+                : 2.344,
+            child: _videoPlayerController!.value.initialized
+                ? VideoPlayer(_videoPlayerController)
+                : Image.asset(
+                    widget.featureContent!.imageUrl as String,
+                    fit: BoxFit.cover,
+                  ),
           ),
-          Container(
-            height: 500,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.black, Colors.transparent],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: -1,
+            child: AspectRatio(
+              aspectRatio: _videoPlayerController!.value.initialized
+                  ? _videoPlayerController!.value.aspectRatio
+                  : 2.344,
+              child: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.black, Colors.transparent],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                  ),
+                ),
               ),
             ),
           ),
@@ -171,9 +184,10 @@ class __ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
                       width: 16,
                     ),
                     FlatButton.icon(
+                      padding: const EdgeInsets.fromLTRB(25, 10, 30, 10),
                       onPressed: () => print("More info"),
                       color: Colors.white,
-                      icon: const Icon(Icons.info_outline),
+                      icon: const Icon(Icons.info_outline, size: 30,),
                       label: const Text(
                         "More Info",
                         style: TextStyle(
@@ -193,11 +207,12 @@ class __ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
                         color: Colors.white,
                         iconSize: 30,
                         onPressed: () => setState(
-                              () {
+                          () {
                             _isMuted
                                 ? _videoPlayerController!.setVolume(100)
                                 : _videoPlayerController!.setVolume(0);
-                            _isMuted = _videoPlayerController!.value.volume == 0;
+                            _isMuted =
+                                _videoPlayerController!.value.volume == 0;
                           },
                         ),
                       )
@@ -216,7 +231,8 @@ class _PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton.icon(
-      padding: const EdgeInsets.fromLTRB(15, 5, 20, 5),
+      padding: !Responsive.isDesktop(context) ? const EdgeInsets.fromLTRB(15, 5, 20, 5):
+      const EdgeInsets.fromLTRB(25, 10, 30, 10),
       onPressed: () => print("Play"),
       icon: const Icon(
         Icons.play_arrow,
