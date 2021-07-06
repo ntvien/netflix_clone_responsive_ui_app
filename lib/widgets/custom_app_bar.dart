@@ -85,8 +85,8 @@ class _CustomAppBarDesktop extends StatelessWidget {
                   iconSize: 28,
                   color: Colors.white,
                 ),
-                _AppBarButton(title: "KIDS", onTap: ()=>print("KIDS")),
-                _AppBarButton(title: "DVD", onTap: ()=>print("DVD")),
+                _AppBarButton(title: "KIDS", onTap: () => print("KIDS")),
+                _AppBarButton(title: "DVD", onTap: () => print("DVD")),
                 IconButton(
                   padding: EdgeInsets.zero,
                   onPressed: () => print("Gift"),

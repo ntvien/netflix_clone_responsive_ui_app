@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   ScrollController? _scrollController;
-  double _scrollOffset = 0.0;
 
   @override
   void initState() {
@@ -43,15 +42,14 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {},
       ),
       appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 50.0),
-        child: BlocBuilder<AppBarCubit, double>(
-          builder: (context, scrollOffset){
-            return CustomAppBar(
-              scrollOffset: scrollOffset,
-            );
-          },
-        )
-      ),
+          preferredSize: Size(screenSize.width, 50.0),
+          child: BlocBuilder<AppBarCubit, double>(
+            builder: (context, scrollOffset) {
+              return CustomAppBar(
+                scrollOffset: scrollOffset,
+              );
+            },
+          )),
       body: CustomScrollView(
         controller: _scrollController,
         slivers: [

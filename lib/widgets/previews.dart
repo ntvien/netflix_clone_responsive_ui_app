@@ -54,17 +54,19 @@ class Previews extends StatelessWidget {
                       height: 130,
                       width: 130,
                       decoration: BoxDecoration(
-                          gradient: const LinearGradient(colors: [
-                            Colors.black87,
-                            Colors.black54,
-                            Colors.transparent
-                          ], stops: [
-                            0,
-                            0.25,
-                            1
-                          ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter),
+                          gradient: const LinearGradient(
+                              colors: [
+                                Colors.black87,
+                                Colors.black54,
+                                Colors.transparent
+                              ],
+                              stops: [
+                                0,
+                                0.25,
+                                1
+                              ],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter),
                           shape: BoxShape.circle,
                           border: Border.all(
                               color: content.color as Color, width: 4)),

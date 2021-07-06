@@ -29,28 +29,29 @@ class _NavigatorBottomScreenState extends State<NavigatorBottomScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider<AppBarCubit>(
-        create: (_)=>AppBarCubit(),
+        create: (_) => AppBarCubit(),
         child: _screens[_currentIndex],
       ),
-      bottomNavigationBar: Responsive.isDesktop(context)?
-      BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
-        items: _icons
-            .map((title, icon) => MapEntry(
-                  title,
-                  BottomNavigationBarItem(
-                      icon: Icon(icon, size: 30), title: Text(title)),
-                ))
-            .values
-            .toList(),
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.white,
-        selectedFontSize: 11,
-        unselectedItemColor: Colors.grey,
-        unselectedFontSize: 11,
-        onTap: (index) => setState(() => _currentIndex = index),
-      ) : null,
+      bottomNavigationBar: !Responsive.isDesktop(context)
+          ? BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.black,
+              items: _icons
+                  .map((title, icon) => MapEntry(
+                        title,
+                        BottomNavigationBarItem(
+                            icon: Icon(icon, size: 30), title: Text(title)),
+                      ))
+                  .values
+                  .toList(),
+              currentIndex: _currentIndex,
+              selectedItemColor: Colors.white,
+              selectedFontSize: 11,
+              unselectedItemColor: Colors.grey,
+              unselectedFontSize: 11,
+              onTap: (index) => setState(() => _currentIndex = index),
+            )
+          : null,
     );
   }
 }

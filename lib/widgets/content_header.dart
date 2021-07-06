@@ -187,7 +187,10 @@ class __ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
                       padding: const EdgeInsets.fromLTRB(25, 10, 30, 10),
                       onPressed: () => print("More info"),
                       color: Colors.white,
-                      icon: const Icon(Icons.info_outline, size: 30,),
+                      icon: const Icon(
+                        Icons.info_outline,
+                        size: 30,
+                      ),
                       label: const Text(
                         "More Info",
                         style: TextStyle(
@@ -231,8 +234,9 @@ class _PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton.icon(
-      padding: !Responsive.isDesktop(context) ? const EdgeInsets.fromLTRB(15, 5, 20, 5):
-      const EdgeInsets.fromLTRB(25, 10, 30, 10),
+      padding: !Responsive.isDesktop(context)
+          ? const EdgeInsets.fromLTRB(15, 5, 20, 5)
+          : const EdgeInsets.fromLTRB(25, 10, 30, 10),
       onPressed: () => print("Play"),
       icon: const Icon(
         Icons.play_arrow,
