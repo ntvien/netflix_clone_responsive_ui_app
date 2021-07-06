@@ -4,7 +4,11 @@
 
     $ flutter run -d chrome
 
-https://youtu.be/EnhcULH10SA
+## Demo:
+
+    [Netflix](https://youtu.be/EnhcULH10SA)
+
+![Demo Netflix](demo/netflix.gif)
 
 ![Web Screenshot](screenshots/web.png)
 
