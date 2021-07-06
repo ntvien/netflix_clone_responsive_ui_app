@@ -10,7 +10,7 @@
 
 ## Demo:
 
-![Demo Netflix](demo/netflix.mp4)
+[![Demo](demo/netflix.gif)](https://youtu.be/EnhcULH10SA)
 
 ![Web Screenshot](screenshots/web.png)
 
